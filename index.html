@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Interstellar Client - Home Page</title>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Interstellar Client</a>
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#" class="--i:1;">Store</a>
+            <a href="#" class="--i:2;">About us</a>
+            <a href="#" class="--i:3;">Staff And Development Team</a>
+            <a href="#" class="--i:4;">FAQs</a>
+            <a href="contact.html" class="--i:5;">Contact</a>
+            <button class="btn-toggle btn" onclick="toggleDark()">Dark Mode</button>
+        </nav>
+
+        <div class="social-media">
+            <a href="https://youtube.com/@InterstellarClient" class="--i:1;"><i class='bx bxl-youtube'></i></a>
+            <a href="?" class="--i:2;"><i class='bx bxl-instagram' ></i></a>
+            <a href="?" class="--i:3;"><i class='bx bxl-facebook'></i></a>
+        </div>
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+            <h1>Interstellar Client</h1>
+            <h3 class="h3">Make Everything Smoooth!</h3>
+            <h4 class="h3">Enhance your experience with our client!</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tenetur et ad suscipit ullam laborum, eius vel neque, quos odit minima ipsam soluta sint, ut aspernatur quis ab quasi omnis?</p>
+            <button class="btn">Download</button>
+        </div>
+
+        <div class="home-img">
+            <div class="rhombus">
+                <img src="" alt="">
+            </div>
+        </div>
+
+        <div class="rhombus2"></div>
+
+    </section>
+    <script src="lib/jquery.min.js"></script>
+    <script>
+        const btn = document.querySelector(".btn-toggle");
+
+        function toggleDark() {
+            var element = document.body;
+            element.classList.toggle("dark-theme");
+        }
+
+        const userPreference = localStorage.getItem("theme");
+
+        if (userPreference) {
+            document.body.classList.add(userPreference);
+        }
+
+        btn.addEventListener("click", function() {
+            document.body.classList.toggle("dark-theme");
+            if (!document.body.classList.contains("dark-theme")) {
+                localStorage.setItem("theme", "dark-theme");
+                window.alert('Refresh the page for the changes to be made');
+                btn.textContent = 'Light Mode';
+                localStorage.setItem('', 'Light Mode');
+            } else {
+                localStorage.removeItem("theme");
+                window.alert('Refresh the page for the changes to be made');
+                btn.textContent = 'Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>
